@@ -1,0 +1,2 @@
+INSERT INTO proyecto1k."local" (direccion,aforo,nombre,telefono) VALUES ('Av. Talara, Cercado de Lima 15836',50,'Bodega Jessica','987654321');
+INSERT INTO proyecto1k."local" (direccion,aforo,nombre,telefono) VALUES ('Sector 3 Grupo 23 Mz. I Lt. 23, Villa EL Salvador',50,'Bodega Jessica 2','987654322');

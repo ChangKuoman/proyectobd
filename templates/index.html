@@ -1,0 +1,36 @@
+{% extends 'template.html' %}
+
+{% block head %}
+<title>{{titulo}}</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    {% if objetos|length < 1 %}
+
+    {% else %}
+    <table class="styled-table">
+      <thead>
+        <tr>
+            {% for tit in titulos %}
+            <td>{{ tit }}</td>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for objeto in objetos %}
+            <tr>
+                {% for i in range(20) %}
+                {% if objeto[i] %}
+                <td>{{ objeto[i] }}</td>
+                {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    {% endif %}
+
+
+</div>
+{% endblock %}
