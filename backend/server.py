@@ -3,10 +3,12 @@ from flask import Flask, jsonify, render_template, abort
 import psycopg2
 import psycopg2.extras
 import os
+from flask_cors import CORS
 from dotenv import load_dotenv
 
 app = Flask(__name__)
 load_dotenv()
+CORS(app, origins=["http://localhost:8080"])
 
 def get_connection():
     db = psycopg2.connect(database=os.environ.get("database"), user=os.environ.get("user"), password=os.environ.get("password"), options=os.environ.get("options"), host=os.environ.get("host"))
