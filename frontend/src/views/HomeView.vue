@@ -1,17 +1,13 @@
 <template>
   <div class="home">
-    <Recurso nombre="compralocal"/>
+    <h1>HomeView</h1>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import "@/components/Recurso.vue"
 export default {
   name: "HomeView",
-  components: {
-    Recurso,
-  }
 };
 </script>
 
