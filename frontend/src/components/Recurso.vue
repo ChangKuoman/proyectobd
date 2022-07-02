@@ -1,6 +1,6 @@
 <template>
     <div v-if="recursos">
-        <h1>Recurso: {{ nombre }}</h1>
+        <h3>{{ nombre.toUpperCase() }}</h3>
         <table class="styled-table">
         <thead>
             <th v-for="titulo in titulos" :key="titulo">{{ titulo }}</th>
@@ -52,3 +52,17 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.styled-table {
+    align-self: center;
+}
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    margin: 5px;
+}
+</style>

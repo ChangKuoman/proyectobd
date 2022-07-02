@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="main">
+    <h1>COMERCIAL JESSICA</h1>
     <nav>
-      <router-link to="/">Hogar</router-link> ||
-      <router-link to="/recurso">Recurso</router-link> ||
-      <router-link to="/consulta">Consulta</router-link>
+      <router-link to="/recurso">Consultar recurso</router-link> ||
+      <router-link to="/consulta">Consultas frecuentes</router-link>
     </nav>
     <router-view />
   </div>
@@ -21,5 +21,9 @@
 nav {
   padding: 30px;
   background-color: transparent;
+}
+
+.main {
+  margin-top: 40px;
 }
 </style>

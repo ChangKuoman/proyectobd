@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>BODEGA JESSICA</h1>
+    
   </div>
 </template>
 

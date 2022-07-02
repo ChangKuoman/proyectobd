@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Consulta</h1>
+  <div class="home">
+    <h2>Consultas</h2>
     <button @click.prevent="cambiarConsulta('consulta1')">Consulta1</button>
     <button @click.prevent="cambiarConsulta('consulta2')">Consulta2</button>
     <button @click.prevent="cambiarConsulta('consulta3')">Consulta3</button>
@@ -28,3 +28,11 @@ export default {
   }
 }
 </script>
+
+<style>
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>

@@ -1,6 +1,7 @@
 <template>
-    <div class="home">
-    <button v-for="(tabla,index) in tablas" :key="index" @click.prevent="cambiarNombre(tabla)">{{ tabla }}</button>
+  <div class="home">
+    <h2>Recursos</h2>
+    <div class="buttons"><button v-for="(tabla,index) in tablas" :key="index" @click.prevent="cambiarNombre(tabla)">{{ tabla.toUpperCase() }}</button></div>
     <div v-if="nombre">
         <Recurso :nombre="nombre"/>
     </div>
@@ -40,5 +41,19 @@ export default {
 </script>
 
 <style>
-
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 80%;
+}
+.buttons button {
+    margin: 2px;
+}
 </style>
