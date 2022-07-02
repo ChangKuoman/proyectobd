@@ -5,28 +5,28 @@
     <button @click.prevent="cambiarConsulta('consulta2')">Consulta2</button>
     <button @click.prevent="cambiarConsulta('consulta3')">Consulta3</button>
     <div v-if="nombre">
-      <Recurso :nombre="nombre"/>
+      <Recurso :nombre="nombre" />
     </div>
   </div>
 </template>
 
 <script>
-import Recurso from "@/components/Recurso.vue"
+import Recurso from "@/components/Recurso.vue";
 export default {
   data() {
     return {
-      nombre: null
-    }
+      nombre: null,
+    };
   },
   components: {
-      Recurso,
+    Recurso,
   },
   methods: {
     cambiarConsulta(consulta) {
-      this.nombre=consulta
-    }
-  }
-}
+      this.nombre = consulta;
+    },
+  },
+};
 </script>
 
 <style>

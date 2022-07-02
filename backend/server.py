@@ -36,11 +36,9 @@ def get(recurso_nombre):
     db, cursor = get_connection()
     cursor.execute("SELECT * FROM "  + recurso_nombre)
     result = cursor.fetchall()
-    titulos = list(result[0].keys())
 
     return jsonify({
         'success': True,
-        'titulos': titulos,
         'recurso' : [dict(row) for row in result]
     }), 200
 
@@ -66,9 +64,7 @@ def consulta1():
     order by mes
     """)
     result = cursor.fetchall()
-    titulos = list(result[0].keys())
     return jsonify({
-        'titulos': titulos,
         'success': True,
         "recurso":[dict(row) for row in result]
     }), 200
@@ -110,9 +106,7 @@ def consulta2():
                                     LIMIT 10) ) AS foo1 ORDER BY 2;
     """)
     result = cursor.fetchall()
-    titulos = list(result[0].keys())
     return jsonify({
-        'titulos': titulos,
         'success': True,
         "recurso":[dict(row) for row in result]
     }), 200
@@ -155,9 +149,7 @@ def consulta3():
     GROUP BY r.dni, nombre, nombre_producto;
     """)
     result = cursor.fetchall()
-    titulos = list(result[0].keys())
     return jsonify({
-        'titulos': titulos,
         'success': True,
         "recurso":[dict(row) for row in result]
     }), 200
