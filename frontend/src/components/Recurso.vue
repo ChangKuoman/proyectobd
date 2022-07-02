@@ -1,22 +1,14 @@
 <template>
     <div v-if="recursos">
-        <h1>Recurso</h1>
+        <h1>Recurso: {{ nombre }}</h1>
         <table class="styled-table">
         <thead>
-            <tr>
-                <td v-for="titulo in recursos[0]">{{ titulo }}</td>
-            </tr>
+            <th v-for="titulo in titulos" :key="titulo">{{ titulo }}</th>
         </thead>
         <tbody>
-            <!-- {% for objeto in objetos %}
-                <tr>
-                    {% for i in range(20) %}
-                    {% if objeto[i] %}
-                    <td>{{ objeto[i] }}</td>
-                    {% endif %}
-                    {% endfor %}
-                </tr>
-            {% endfor %} -->
+            <tr v-for="(objeto,index) in recursos" :key="index">
+                <td v-for="(valor,index2) in objeto" :key="index2">{{ valor }}</td>
+            </tr>
         </tbody>
         </table>
     </div>
@@ -33,7 +25,8 @@ export default {
     },
     data() {
         return {
-            recursos: null
+            recursos: null,
+            titulos: null,
         }
     },
     methods: {
@@ -44,12 +37,18 @@ export default {
                     "Content-Type" : "application/json",
                 },
             }).then(res => res.json()).then(resJson => {
-                this.recursos = resJson;
+                this.recursos = resJson['recurso'];
+                this.titulos = resJson['titulos'];
             });
         }
     },
     mounted() {
         this.getData();
+    },
+    watch: {
+        nombre: function(newVal, oldVal) {
+            this.getData();
+        }
     }
 };
 </script>
