@@ -22,6 +22,13 @@ def get_table_names():
     result = cursor.fetchall()
     return [dict(row).get("table_name") for row in result]
 
+@app.route("/tablas", methods=['GET'])
+def get_tablas():
+    return jsonify({
+        'success': True,
+        'recurso' : get_table_names()
+    }), 200
+
 @app.route("/<recurso_nombre>", methods=["GET"])
 def get(recurso_nombre):
     if recurso_nombre not in get_table_names():
@@ -29,9 +36,12 @@ def get(recurso_nombre):
     db, cursor = get_connection()
     cursor.execute("SELECT * FROM "  + recurso_nombre)
     result = cursor.fetchall()
+    titulos = list(result[0].keys())
 
     return jsonify({
-        recurso_nombre : [dict(row) for row in result]
+        'success': True,
+        'titulos': titulos,
+        'recurso' : [dict(row) for row in result]
     }), 200
 
 @app.route("/consulta1", methods=["GET"])
@@ -56,8 +66,11 @@ def consulta1():
     order by mes
     """)
     result = cursor.fetchall()
+    titulos = list(result[0].keys())
     return jsonify({
-        "consulta":[dict(row) for row in result]
+        'titulos': titulos,
+        'success': True,
+        "recurso":[dict(row) for row in result]
     }), 200
 
 @app.route("/consulta2", methods=["GET"])
@@ -97,8 +110,11 @@ def consulta2():
                                     LIMIT 10) ) AS foo1 ORDER BY 2;
     """)
     result = cursor.fetchall()
+    titulos = list(result[0].keys())
     return jsonify({
-        "consulta":[dict(row) for row in result]
+        'titulos': titulos,
+        'success': True,
+        "recurso":[dict(row) for row in result]
     }), 200
 
 @app.route("/consulta3", methods=["GET"])
@@ -139,8 +155,11 @@ def consulta3():
     GROUP BY r.dni, nombre, nombre_producto;
     """)
     result = cursor.fetchall()
+    titulos = list(result[0].keys())
     return jsonify({
-        "consulta":[dict(row) for row in result]
+        'titulos': titulos,
+        'success': True,
+        "recurso":[dict(row) for row in result]
     }), 200
 
 @app.errorhandler(404)
