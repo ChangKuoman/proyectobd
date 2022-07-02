@@ -39,7 +39,6 @@ export default {
             }).then(res => res.json()).then(resJson => {
                 this.recursos = resJson['recurso'];
                 this.titulos = resJson['titulos'];
-                console.log(this.titulos)
             });
         }
     },
